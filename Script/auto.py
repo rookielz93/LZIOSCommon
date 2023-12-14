@@ -88,7 +88,8 @@ def podCommandEdit():
     global pod_push_command
     source_suffix = 'https://github.com/CocoaPods/Specs.git --allow-warnings'
     lib_command = 'pod lib lint --sources='
-    pod_push_command = 'pod repo push ' + project_name + ' ' + podspec_file_name
+#    pod_push_command = 'pod repo push ' + project_name + ' ' + podspec_file_name
+    pod_push_command = 'pod trunk push ' + podspec_file_name + ' --allow-warnings --use-libraries --verbose'
     if len(sources) > 0:
         # rely on  private sourece
         pod_push_command += ' --sources='
@@ -121,6 +122,7 @@ def podLibLint():
 
 def gitOperation():
     print("\n--------- start git --------\n")
+    
     oldPath = os.getcwd()
     os.chdir(oldPath+"/../")
     
@@ -158,17 +160,19 @@ def gitOperation():
 
 def podPush():
     print("\n-------- start pod push ---------\n")
+    oldPath = os.getcwd()
+    os.chdir(oldPath+"/../")
     
+    print(pod_push_command)
     os.system(pod_push_command)
     
-    print("\n-------- start pod push ---------\n")
+    os.chdir(oldPath)
+    print("\n-------- finish pod push ---------\n")
 
 # run commands
 
 updateVersion()  # 修改 .podspec 中的 .version
-#podCommandEdit()
-#podLibLint()
+podCommandEdit()
+podLibLint()
 gitOperation()
-#podPush()
-
-
+podPush()
