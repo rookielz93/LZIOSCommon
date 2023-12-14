@@ -6,6 +6,7 @@
 //
 
 #import "LZImageGenerator.h"
+#import "LZLog.h"
 
 @implementation LZImageGenerator
 

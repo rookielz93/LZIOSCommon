@@ -13,8 +13,7 @@
 #import "NSObject+LZRuntime.h"
 #import "LZInPurchaseTaskWrapper.h"
 #import "LZInPurchaseReceipt.h"
-#import <YYModel.h>
-#import "LZFileTool.h"
+#import <YYModel/YYModel.h>
 #import "LZUserDefault.h"
 #import "LZInPurchaseProduct.h"
 

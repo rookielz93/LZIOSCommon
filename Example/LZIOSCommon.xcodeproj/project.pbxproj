@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		349333A600C14EE876C329A8 /* LZIOSCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LZIOSCommon.podspec; path = ../LZIOSCommon.podspec; sourceTree = "<group>"; };
+		349333A600C14EE876C329A8 /* LZIOSCommon.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LZIOSCommon.podspec; path = ../LZIOSCommon.podspec; sourceTree = "<group>"; };
 		3969B52EE8FB7F821E90B00A /* Pods_LZIOSCommon_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZIOSCommon_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AA1CC31196EA54B940FE43 /* Pods-LZIOSCommon_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZIOSCommon_Example.debug.xcconfig"; path = "Target Support Files/Pods-LZIOSCommon_Example/Pods-LZIOSCommon_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LZIOSCommon_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZIOSCommon_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,8 +64,8 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96F3D167A11D33CA6FDD0872 /* Pods-LZIOSCommon_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZIOSCommon_Tests.release.xcconfig"; path = "Target Support Files/Pods-LZIOSCommon_Tests/Pods-LZIOSCommon_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A5BBB6EEC3E5143C5FA6F118 /* Pods-LZIOSCommon_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZIOSCommon_Example.release.xcconfig"; path = "Target Support Files/Pods-LZIOSCommon_Example/Pods-LZIOSCommon_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A90FBAB25C3FBE95E2BE60D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		B965FB97C29CC2EC9B65D789 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A90FBAB25C3FBE95E2BE60D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B965FB97C29CC2EC9B65D789 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DF6E0279F3B64E75ADF8AB2A /* Pods_LZIOSCommon_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LZIOSCommon_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				8244EA74EDCC0332E1BD9D96 /* Pods-LZIOSCommon_Tests.debug.xcconfig */,
 				96F3D167A11D33CA6FDD0872 /* Pods-LZIOSCommon_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -346,11 +346,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LZIOSCommon_Example/Pods-LZIOSCommon_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/LZIOSCommon/LZIOSCommon.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LZIOSCommon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -497,6 +503,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LZIOSCommon/LZIOSCommon-Prefix.pch";
 				INFOPLIST_FILE = "LZIOSCommon/LZIOSCommon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +520,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LZIOSCommon/LZIOSCommon-Prefix.pch";
 				INFOPLIST_FILE = "LZIOSCommon/LZIOSCommon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

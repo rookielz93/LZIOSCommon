@@ -11,6 +11,7 @@
 #import "LZAlert.h"
 #import "LZGCD.h"
 #import "LZCond.h"
+#import "LZLog.h"
 
 @interface LZLocalNotification ()
 @property (nonatomic, strong) UNUserNotificationCenter *center;

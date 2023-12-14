@@ -14,7 +14,7 @@
 #import "LZObjcProperty.h"
 #import "LZSqlResult.h"
 #import "LZSqlTool.h"
-#import "LZTool.h"
+#import "NSString+LZCrypto.h"
 #import "LZLog.h"
 
 @implementation LZSqlCMD
@@ -167,7 +167,7 @@
         // primary set
         NSString *primary = [target lz_primary];
         if (!primary) {
-            primary = [LZTool uuid];
+            primary = [NSString uuid];
             target.lz_primary = primary;
         }
         [args addObject:primary];

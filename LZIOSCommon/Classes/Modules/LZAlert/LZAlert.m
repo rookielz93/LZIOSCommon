@@ -6,6 +6,7 @@
 //
 
 #import "LZAlert.h"
+#import "LZLog.h"
 
 @implementation LZAlert
 

@@ -8,6 +8,7 @@
 #import "LZPasteboardManager.h"
 #import <UIKit/UIKit.h>
 #import "LZGCD.h"
+#import "LZLog.h"
 
 @implementation LZPasteboardContent
 

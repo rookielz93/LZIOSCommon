@@ -11,6 +11,10 @@
 
 @implementation NSString (LZCrypto)
 
++ (NSString *)uuid {
+    return [NSUUID new].UUIDString; // 随机
+}
+
 - (NSString *)toMD5 {
     const char *cStr = [self UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];

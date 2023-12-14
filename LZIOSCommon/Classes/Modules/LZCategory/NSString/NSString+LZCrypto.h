@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (LZCrypto)
 
++ (NSString *)uuid;
+
 - (NSString *)toMD5;
 
 - (NSString *)uniqueFileName;
