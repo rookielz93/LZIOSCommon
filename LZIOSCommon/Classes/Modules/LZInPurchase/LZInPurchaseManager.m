@@ -20,6 +20,7 @@
 @interface LZInPurchaseManager ()
 
 @property (nonatomic, strong) LZGCD *safe;
+@property (nonatomic, copy) NSString *password;
 @property (nonatomic, strong) NSMutableDictionary <NSString *, LZInPurchaseTaskWrapper *> *requestMap;
 @property (nonatomic, strong) NSMutableDictionary <NSString *, LZInPurchaseTaskWrapper *> *payMap;
 @property (nonatomic, copy)   NSMutableArray <LZInPurchaseRestoreCompletion> *restoreCompletions;
@@ -65,6 +66,11 @@ LZSingletonM
 }
 
 // MARK: - Public
+
+- (void)launchWithOption:(NSDictionary *)options {
+    self.password = options[LZInPurchasePersistenceKeyPassword];
+    NSAssert(self.password, @"in purchase'password is nil");
+}
 
 - (void)requestProducts:(NSSet<NSString *> *)idens completion:(nonnull LZInPurchaseRequestCompletion)completion {
     [self.safe async:^{
@@ -386,7 +392,7 @@ LZSingletonM
     NSError *error = nil;
     NSDictionary *requestContents = @{
         @"receipt-data": [receipt base64EncodedStringWithOptions:0],
-        @"password" : LZInPurchasePassword
+        @"password" : self.password
     };
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestContents options:0 error:&error];
     if (!requestData) { // 交易凭证为空验证失败

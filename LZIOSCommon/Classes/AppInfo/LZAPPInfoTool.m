@@ -8,8 +8,15 @@
 #import "LZAPPInfoTool.h"
 #import "LZLog.h"
 
+LZAppInfoKey LZAppInfoAppIdKey = @"LZAppInfoAppIdKey";
+LZAppInfoKey LZAppInfoPrivacyURLKey = @"LZAppInfoPrivacyURLKey";
+LZAppInfoKey LZAppInfoTermsOfUseURLKey = @"LZAppInfoPrivacyURLKey";
+
 @interface LZAPPInfoTool ()
 @property (nonatomic, strong) NSDictionary *infoPlist;
+@property (nonatomic, copy, readwrite) NSString *appId;
+@property (nonatomic, copy, readwrite) NSURL *privacyPolicyURL;
+@property (nonatomic, copy, readwrite) NSURL *termsOfUseURL;
 @end
 
 @implementation LZAPPInfoTool
@@ -20,6 +27,12 @@ LZSingletonM
     LZLoggerInfo(@"%@", self.infoPlist);
 }
 
+- (void)launchWithOption:(NSDictionary *)options {
+    self.appId = options[LZAppInfoAppIdKey];
+    self.privacyPolicyURL = options[LZAppInfoPrivacyURLKey];
+    self.termsOfUseURL = options[LZAppInfoTermsOfUseURLKey];
+}
+
 - (NSString *)version { return self.infoPlist[@"CFBundleShortVersionString"]; }
 
 - (NSString *)name { return self.infoPlist[@"CFBundleDisplayName"]; }
@@ -28,14 +41,8 @@ LZSingletonM
 
 - (NSString *)bundleId { return self.infoPlist[@"CFBundleIdentifier"]; }
 
-- (NSURL *)appStoreURL { return [NSURL URLWithString:@"https://itunes.apple.com/app/id6471901130"]; }
+- (NSString *)appId { return _appId ?: self.infoPlist[@"LZAppId"]; }
 
-- (NSURL *)privacyPolicyURL {
-    return [NSURL URLWithString:@"https://docs.qq.com/doc/p/432febfe94d125bda8465780e1d9588f51ea6e26?u=913f83c235864245b2f63f1ed92aab37"];
-}
-
-- (NSURL *)termsOfUseURL {
-    return [NSURL URLWithString:@"https://docs.qq.com/doc/p/7c74bfcbc3b6cc8dadfe4acb903b5a209c184d39?u=913f83c235864245b2f63f1ed92aab37"];
-}
+- (NSURL *)appStoreURL { return [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/app/id%@", self.appId]]; }
 
 @end

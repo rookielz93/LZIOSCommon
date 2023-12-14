@@ -25,8 +25,7 @@ extern LZInPurchaseProductIden LZInPurchaseProductIdenWeekFreeTrial3;
 typedef NSString* LZInPurchasePersistenceKey;
 extern LZInPurchasePersistenceKey LZInPurchasePersistenceKeyProducts;
 extern LZInPurchasePersistenceKey LZInPurchasePersistenceKeyVIP;
-
-extern NSString* LZInPurchasePassword;
+extern LZInPurchasePersistenceKey LZInPurchasePersistenceKeyPassword;
 
 @class LZInPurchaseProduct;
 @class LZInPurchaseReceiptResponse;

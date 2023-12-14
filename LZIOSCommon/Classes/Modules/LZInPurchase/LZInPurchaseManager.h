@@ -18,12 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol LZInPurchaseManagerDelegate <NSObject>
 
-
-
 @end
 
 @interface LZInPurchaseManager : NSObject
 LZSingletonH
+
+- (void)launchWithOption:(NSDictionary *)options;
 
 - (void)requestProducts:(NSSet<LZInPurchaseProductIden>*)idens completion:(LZInPurchaseRequestCompletion)completion;
 
