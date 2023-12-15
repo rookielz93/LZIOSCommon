@@ -19,7 +19,7 @@
 }
 
 - (void)uiInit {
-    [self uiInit];
+    [super uiInit];
     
     self.title = self.pageModel.title;
 }
