@@ -1,33 +1,28 @@
 //
-//  LZBaseViewController.m
-//  VideoDownloader
+//  LZBusinessViewController.m
+//  LZIOSCommon
 //
-//  Created by lz on 2023/9/9.
+//  Created by 金胜利 on 2023/12/15.
 //
 
-#import "LZBaseViewController.h"
+#import "LZBusinessViewController.h"
 
-@interface LZBaseViewController ()
+@interface LZBusinessViewController ()
 
 @end
 
-@implementation LZBaseViewController
+@implementation LZBusinessViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self allInit];
 }
 
-- (void)allInit {
-    [self dataInit];
+- (void)uiInit {
     [self uiInit];
+    
+    self.title = self.pageModel.title;
 }
-
-- (void)dataInit {}
-
-- (void)uiInit {}
-
 /*
 #pragma mark - Navigation
 
