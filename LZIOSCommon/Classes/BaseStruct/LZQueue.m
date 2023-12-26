@@ -17,6 +17,8 @@
 
 - (int)count { return (int)_cache.count; }
 
+- (BOOL)isEmpty { return (self.count == 0); }
+
 // FIXME: 用数组性能不是太好，后面考虑优化下
 - (void)enqueue:(id)data {
     if (!data) return;
@@ -34,24 +36,13 @@
     return firstData;
 }
 
-- (NSArray *)datas { return [_cache copy]; }
+- (void)reset { if (_cache) [_cache removeAllObjects]; }
 
-- (void)removeAll { [_cache removeAllObjects]; }
+- (NSArray *)peekAll { return _cache.copy; }
 
-- (void)remove:(id)data {
-    if (!data) return;
-    [_cache removeObject:data];
-}
+- (id)peekFront { return _cache.firstObject; }
 
-- (id)first {
-    if (!_cache) return nil;
-    return _cache.firstObject;
-}
-
-- (id)last {
-    if (!_cache) return nil;
-    return _cache.lastObject;;
-}
+- (id)peekLast { return _cache.lastObject; }
 
 @end
 

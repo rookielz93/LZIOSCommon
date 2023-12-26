@@ -82,7 +82,7 @@
         [task cancel];
     }
     [self.tasks removeAllObjects];
-    [self.waitingTaskQueue removeAll];
+    [self.waitingTaskQueue reset];
 }
 
 // MARK: - Helper

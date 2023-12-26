@@ -48,6 +48,7 @@ TODO: Add long description of the pod here.
     ss.source_files = 'LZIOSCommon/Classes/BaseStruct/**/*'
     
     ss.dependency 'LZIOSCommon/Log'
+    ss.dependency 'LZIOSCommon/Lock'
   end
   
   s.subspec 'Define' do |ss|

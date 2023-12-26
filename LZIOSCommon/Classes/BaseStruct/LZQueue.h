@@ -11,15 +11,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LZQueue : NSObject
 
-- (int)count;
+@property (nonatomic, readonly, assign) int count;
+@property (nonatomic, readonly, assign) BOOL isEmpty;
+
 - (void)enqueue:(id)data;
 - (id)dequeue;
-- (void)removeAll;
-- (void)remove:(id)data;
 
-- (NSArray *)datas;
-- (id)first;
-- (id)last;
+- (void)reset;
+
+- (NSArray *)peekAll;
+- (id)peekFront;
+- (id)peekLast;
 
 @end
 
